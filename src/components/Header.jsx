@@ -1,6 +1,7 @@
-import { Link, Outlet } from 'react-router-dom';
+import { Outlet } from 'react-router-dom';
 //import { Route, Routes } from 'react-router-dom';
 //import { NavLink } from 'react-router-dom';
+import { Link } from './Header.styled';
 
 export const Header = () => {
   return (

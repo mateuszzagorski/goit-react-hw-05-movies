@@ -39,8 +39,6 @@ export const searchMovie = movie => {
 };
 
 export const getMovieDetails = id => {
-  //change movieId to movie option
-  //let movieId = '872585';
   const getMovieDetailsURL = `/movie/${id}?`;
   return getData(getMovieDetailsURL);
 };

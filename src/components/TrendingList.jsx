@@ -21,10 +21,9 @@ export const TrendingList = () => {
       <h2>Trending today</h2>
       <ul>
         {trendingMovies.map(movie => {
-          console.log(movie);
           return (
             <li key={movie.id}>
-              <Link to={`${movie.id}`}>{movie.title}</Link>
+              <Link to={`/movies/${movie.id}`}>{movie.title}</Link>
             </li>
           );
         })}
