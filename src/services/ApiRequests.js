@@ -15,46 +15,47 @@ const fetchData = async option => {
   }
 };
 
-const getData = option => {
-  fetchData(option)
-    .then(data => {
-      console.log(data);
-      return data;
-    })
-    .catch(error => {
-      console.log(error.message);
-    });
+const getData = async option => {
+  try {
+    const data = await fetchData(option);
+    console.log(data);
+    return data;
+  } catch (error) {
+    console.log(error.message);
+    throw error;
+  }
 };
 
 export const getTrending = () => {
   const getTrendingURL = '/trending/movie/day?';
-  getData(getTrendingURL);
+  //console.log(getData(getTrendingURL));
+  return getData(getTrendingURL);
 };
 
 export const searchMovie = movie => {
   //change Harry to movie option
   let movieS = 'Harry';
   const searchMovieURL = `/search/movie?query=${movieS}&`;
-  getData(searchMovieURL);
+  return getData(searchMovieURL);
 };
 
 export const getMovieDetails = movie => {
   //change movieId to movie option
   let movieId = '872585';
   const getMovieDetailsURL = `/movie/${movieId}?`;
-  getData(getMovieDetailsURL);
+  return getData(getMovieDetailsURL);
 };
 
 export const getMovieCredits = movie => {
   //change movieId to movie option
   let movieId = '872585';
   const getMovieCreditsURL = `/movie/${movieId}/credits?`;
-  getData(getMovieCreditsURL);
+  return getData(getMovieCreditsURL);
 };
 
 export const getMovieReviews = movie => {
   //change movieId to movie option
   let movieId = '872585';
   const getMovieReviewsURL = `/movie/${movieId}/reviews?`;
-  getData(getMovieReviewsURL);
+  return getData(getMovieReviewsURL);
 };
