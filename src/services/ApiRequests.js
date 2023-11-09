@@ -7,7 +7,6 @@ const fetchData = async option => {
   try {
     const response = await axios.get(`${API_URL}${option}api_key=${API_KEY}`);
     const data = response.data;
-    console.log(data);
     return data;
   } catch (error) {
     console.log(error.message);
@@ -18,7 +17,6 @@ const fetchData = async option => {
 const getData = async option => {
   try {
     const data = await fetchData(option);
-    console.log(data);
     return data;
   } catch (error) {
     console.log(error.message);
@@ -32,9 +30,7 @@ export const getTrending = () => {
 };
 
 export const searchMovie = movie => {
-  //change Harry to movie option
-  let movieS = 'Harry';
-  const searchMovieURL = `/search/movie?query=${movieS}&`;
+  const searchMovieURL = `/search/movie?query=${movie}&`;
   return getData(searchMovieURL);
 };
 
