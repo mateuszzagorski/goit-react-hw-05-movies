@@ -2,7 +2,7 @@ import { Route, Routes } from 'react-router-dom';
 
 import { Header } from './Header';
 import { Home } from '../pages/Home';
-import { Movies } from './Movies';
+import { Movies } from '../pages/Movies';
 import { MovieDetails } from './MovieDetails';
 
 export const App = () => {
