@@ -28,7 +28,6 @@ const getData = async option => {
 
 export const getTrending = () => {
   const getTrendingURL = '/trending/movie/day?';
-  //console.log(getData(getTrendingURL));
   return getData(getTrendingURL);
 };
 
@@ -39,10 +38,10 @@ export const searchMovie = movie => {
   return getData(searchMovieURL);
 };
 
-export const getMovieDetails = movie => {
+export const getMovieDetails = id => {
   //change movieId to movie option
-  let movieId = '872585';
-  const getMovieDetailsURL = `/movie/${movieId}?`;
+  //let movieId = '872585';
+  const getMovieDetailsURL = `/movie/${id}?`;
   return getData(getMovieDetailsURL);
 };
 

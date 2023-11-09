@@ -16,8 +16,6 @@ export const TrendingList = () => {
       });
   }, []);
 
-  const data = useParams();
-  console.log(data);
   return (
     <>
       <h2>Trending today</h2>
@@ -26,8 +24,7 @@ export const TrendingList = () => {
           console.log(movie);
           return (
             <li key={movie.id}>
-              {' '}
-              <Link to={movie.id}>{movie.title}</Link>
+              <Link to={`${movie.id}`}>{movie.title}</Link>
             </li>
           );
         })}
