@@ -1,9 +1,25 @@
-import { TrendingList } from 'components/TrendingList';
+import { MoviesList } from 'components/MovieList';
+import { useEffect, useState } from 'react';
+import { getTrending } from '../services/ApiRequests';
 
 export const Home = () => {
+  const [trendingMovies, setTrendingMovies] = useState([]);
+
+  useEffect(() => {
+    getTrending()
+      .then(data => {
+        console.log(data);
+        setTrendingMovies(data.results);
+      })
+      .catch(error => {
+        console.error(error);
+      });
+  }, []);
+
   return (
     <>
-      <TrendingList />
+      <h2>Trending today</h2>
+      <MoviesList data={trendingMovies} />
     </>
   );
 };
