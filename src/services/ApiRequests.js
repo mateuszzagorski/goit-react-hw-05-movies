@@ -53,11 +53,20 @@ export const getMovieReviews = movie => {
   return getData(getMovieReviewsURL);
 };
 
+// export const getFullPosterURL = posterPath => {
+//   try {
+//     const basePosterURL = 'https://image.tmdb.org/t/p/w500/';
+//     return `${basePosterURL}${posterPath}`;
+//   } catch (error) {
+//     console.error(error.message);
+//   }
+// };
+
 export const getFullPosterURL = posterPath => {
   try {
-    const basePosterURL = 'https://image.tmdb.org/t/p/w500/';
-    return `${basePosterURL}${posterPath}`;
+    const response = `https://image.tmdb.org/t/p/w500${posterPath}`;
+    return response;
   } catch (error) {
-    console.error(error.message);
+    return error(error.message);
   }
 };
