@@ -52,3 +52,12 @@ export const getMovieReviews = movie => {
   const getMovieReviewsURL = `/movie/${movieId}/reviews?`;
   return getData(getMovieReviewsURL);
 };
+
+export const getFullPosterURL = posterPath => {
+  try {
+    const basePosterURL = 'https://image.tmdb.org/t/p/w500/';
+    return `${basePosterURL}${posterPath}`;
+  } catch (error) {
+    console.error(error.message);
+  }
+};

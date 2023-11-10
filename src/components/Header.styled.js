@@ -16,7 +16,8 @@ export const Link = styled(NavLink)`
 export const HeaderStyled = styled.header`
   & > nav {
     display: flex;
-    justify-content: space-around;
+    justify-content: center;
+    gap: 100px;
     margin-bottom: 20px;
     padding-top: 20px;
   }
