@@ -21,7 +21,7 @@ export const MovieDetails = () => {
   return (
     <>
       <div className="movie-details-box">
-        <img src={getFullPosterURL(movie.poster_path)} alt="" />
+        <img src={getFullPosterURL(movie.poster_path)} alt={movie.title} />
         <div>
           <h2>
             {movie.title} ({movie.release_date})
@@ -34,7 +34,7 @@ export const MovieDetails = () => {
           <p>{genres.map(genre => genre.name).join(`, `)}</p>
         </div>
       </div>
-      <div>
+      <div className="information-box">
         <h3>Additional information</h3>
         <Link to="cast">Cast</Link>
         <br />

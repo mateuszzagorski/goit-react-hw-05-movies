@@ -39,10 +39,8 @@ export const getMovieDetails = id => {
   return getData(getMovieDetailsURL);
 };
 
-export const getMovieCredits = movie => {
-  //change movieId to movie option
-  let movieId = '872585';
-  const getMovieCreditsURL = `/movie/${movieId}/credits?`;
+export const getMovieCredits = id => {
+  const getMovieCreditsURL = `/movie/${id}/credits?`;
   return getData(getMovieCreditsURL);
 };
 

@@ -44,7 +44,50 @@ div {
 
 .review-list {
   background-color: rgb(35, 8, 66);
+}
+
+.review-list {
   border-radius: 5px;
   padding: 15px;
   margin: 30px;
+}
+
+.cast-item > img {
+  width: 300px;
+}
+
+.cast-item {
+  text-align: center;
+  width: 300px;
+}
+
+.cast-list {
+  justify-content: space-around;
+  border-radius: 5px;
+  /* padding: 15px;
+  margin: 30px; */
+  gap: 20px;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+/* same style as in Link (header.styled) - to fix */
+.information-box > a {
+  width: 70px;
+  margin-top: 15px;
+  padding: 10px;
+  border-radius: 10px;
+  text-decoration: none;
+  color: white;
+  font-weight: 500;
+}
+
+/* to delete */
+.information-box > a:focus {
+  background-color: orange;
+}
+
+.information-box {
+  display: flex;
+  flex-direction: column;
 }
