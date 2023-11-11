@@ -5,7 +5,6 @@ export const MoviesList = ({ data }) => {
     <>
       <ul>
         {data.map(movie => {
-          console.log(movie);
           return (
             <li key={movie.id}>
               <Link to={`/movies/${movie.id}`}>

@@ -1,7 +1,7 @@
 import { Outlet } from 'react-router-dom';
 //import { Route, Routes } from 'react-router-dom';
 //import { NavLink } from 'react-router-dom';
-import { Link, HeaderStyled } from './Header.styled';
+import { Link, HeaderStyled } from '../components/Header.styled';
 
 export const Header = () => {
   return (

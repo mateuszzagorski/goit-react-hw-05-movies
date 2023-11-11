@@ -1,9 +1,10 @@
 import { Route, Routes } from 'react-router-dom';
 
-import { Header } from './Header';
+import { Header } from '../pages/Header';
 import { Home } from '../pages/Home';
 import { SearchMovieByWord } from '../pages/SearchMovie';
-import { MovieDetails } from './MovieDetails';
+import { MovieDetails } from '../pages/MovieDetails';
+import { Reviews } from './Reviews';
 
 export const App = () => {
   return (
@@ -11,7 +12,10 @@ export const App = () => {
       <Route path="/" element={<Header />}>
         <Route index element={<Home />} />
         <Route path="movies" element={<SearchMovieByWord />} />
-        <Route path="movies/:id" element={<MovieDetails />} />
+        <Route path="movies/:id" element={<MovieDetails />}>
+          {/* <Route path="cast" element={<Cast />} /> */}
+          <Route path="reviews" element={<Reviews />} />
+        </Route>
         <Route path="*" element={<Home />} />
       </Route>
     </Routes>

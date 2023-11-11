@@ -10,10 +10,8 @@ export const MovieDetails = () => {
   useEffect(() => {
     getMovieDetails(id)
       .then(data => {
-        console.log(data);
         setMovie(data);
         setGenres(data.genres);
-        console.log(data.genres.length);
       })
       .catch(error => {
         console.error(error);
@@ -37,7 +35,15 @@ export const MovieDetails = () => {
           <p>{genres.map(genre => genre.name).join(`, `)}</p>
         </div>
       </div>
-      <div></div>
+      <div>
+        <h3>Additional information</h3>
+        <Link to={'cast'}>
+          <p>Cast</p>
+        </Link>
+        <Link to={'reviews'}>
+          <p>Reviews</p>
+        </Link>
+      </div>
     </>
   );
 };
