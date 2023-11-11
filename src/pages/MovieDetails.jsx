@@ -1,4 +1,4 @@
-import { Link, useParams } from 'react-router-dom';
+import { Link, useParams, Outlet } from 'react-router-dom';
 import { useEffect, useState } from 'react';
 
 import { getMovieDetails, getFullPosterURL } from '../services/ApiRequests';
@@ -16,9 +16,8 @@ export const MovieDetails = () => {
       .catch(error => {
         console.error(error);
       });
-  }, []);
+  }, [id]);
   const votePercentage = (movie.vote_average * 10).toFixed(0) + '%';
-
   return (
     <>
       <div className="movie-details-box">
@@ -37,13 +36,11 @@ export const MovieDetails = () => {
       </div>
       <div>
         <h3>Additional information</h3>
-        <Link to={'cast'}>
-          <p>Cast</p>
-        </Link>
-        <Link to={'reviews'}>
-          <p>Reviews</p>
-        </Link>
+        <Link to="cast">Cast</Link>
+        <br />
+        <Link to="reviews">Reviews</Link>
       </div>
+      <Outlet />
     </>
   );
 };
