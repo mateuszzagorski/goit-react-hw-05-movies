@@ -61,6 +61,9 @@ export const getMovieReviews = id => {
 // };
 
 export const getFullPosterURL = posterPath => {
+  if (!posterPath) {
+    return;
+  }
   try {
     const response = `https://image.tmdb.org/t/p/w500${posterPath}`;
     return response;
