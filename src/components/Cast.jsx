@@ -22,9 +22,14 @@ export const Cast = () => {
         const id = nanoid();
         return (
           <li className="cast-item" key={id}>
-            {actor.profile_path && (
+            {actor.profile_path ? (
               <img
                 src={getFullPosterURL(actor.profile_path)}
+                alt={actor.name}
+              />
+            ) : (
+              <img
+                srcSet={`${process.env.PUBLIC_URL}/no-poster.jpg`}
                 alt={actor.name}
               />
             )}
