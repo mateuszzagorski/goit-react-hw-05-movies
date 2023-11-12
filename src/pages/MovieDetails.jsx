@@ -1,12 +1,18 @@
-import { Link, useParams, Outlet } from 'react-router-dom';
+import { Link, useParams, Outlet, useLocation } from 'react-router-dom';
 import { useEffect, useState } from 'react';
 
+import { BackLink } from '../components/MovieDetails.styled.js';
 import { getMovieDetails, getFullPosterURL } from '../services/ApiRequests';
 
 export const MovieDetails = () => {
   const [movie, setMovie] = useState([]);
   const [genres, setGenres] = useState([]);
   const { id } = useParams();
+  const location = useLocation();
+  const backLinkHref = location.state?.from ?? '/movies';
+  console.log(location.state);
+  // console.log(location.state.from);
+
   useEffect(() => {
     getMovieDetails(id)
       .then(data => {
@@ -21,6 +27,7 @@ export const MovieDetails = () => {
   return (
     <>
       <div className="movie-details-box">
+        <BackLink to={backLinkHref}>Go back</BackLink>
         <img src={getFullPosterURL(movie.poster_path)} alt={movie.title} />
         <div>
           <h2>

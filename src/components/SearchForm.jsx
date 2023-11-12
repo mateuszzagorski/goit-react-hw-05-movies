@@ -1,9 +1,14 @@
-export const SearchForm = ({ fnOnFormSubmit }) => {
+export const SearchForm = ({ fnOnFormSubmit, fnOnChange, value }) => {
   const handleSubmit = event => {
     fnOnFormSubmit(event);
   };
   return (
-    <form className="form" onSubmit={handleSubmit}>
+    <form
+      className="form"
+      onSubmit={handleSubmit}
+      onChange={e => fnOnChange(e.target.value)}
+      value={value}
+    >
       <input
         id="input"
         className="input"

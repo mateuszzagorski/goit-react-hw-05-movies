@@ -4,12 +4,21 @@ import { searchMovie } from '../services/ApiRequests';
 import { SearchForm } from 'components/SearchForm';
 import { MoviesList } from '../components/MovieList';
 
-import { Link, useParams } from 'react-router-dom';
+import { useSearchParams } from 'react-router-dom';
 
 export const SearchMovieByWord = () => {
   const [data, setData] = useState([]);
   const [showMovies, setShowMovies] = useState(false);
   const [requestedWord, setRequestedWord] = useState('');
+  const [searchParams, setSearchParams] = useSearchParams();
+  const movieName = searchParams.get('name') ?? '';
+
+  const updateQueryString = name => {
+    const newParams = name !== '' ? { name } : {};
+    setSearchParams(newParams);
+    setRequestedWord(newParams);
+    setShowMovies(true);
+  };
 
   const getWordFromInput = event => {
     event.preventDefault();
@@ -22,7 +31,8 @@ export const SearchMovieByWord = () => {
 
   useEffect(() => {
     if (requestedWord !== '') {
-      searchMovie(requestedWord)
+      console.log(movieName);
+      searchMovie(movieName || requestedWord)
         .then(data => {
           setShowMovies(true);
           setData(data.results);
@@ -35,7 +45,11 @@ export const SearchMovieByWord = () => {
 
   return (
     <>
-      <SearchForm fnOnFormSubmit={getWordFromInput} />
+      <SearchForm
+        value={movieName}
+        fnOnFormSubmit={getWordFromInput}
+        fnOnChange={updateQueryString}
+      />
       {setShowMovies && <MoviesList data={data} />}
     </>
   );
