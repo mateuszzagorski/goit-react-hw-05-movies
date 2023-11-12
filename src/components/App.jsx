@@ -4,8 +4,8 @@ import { Header } from '../pages/Header';
 import { Home } from '../pages/Home';
 import { SearchMovieByWord } from '../pages/SearchMovie';
 import { MovieDetails } from '../pages/MovieDetails';
-import { Reviews } from './Reviews';
-import { Cast } from './Cast';
+import { Reviews } from './reviews/Reviews';
+import { Cast } from './cast/Cast';
 
 export const App = () => {
   return (

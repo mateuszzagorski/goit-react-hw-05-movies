@@ -4,10 +4,6 @@ import { NavLink } from 'react-router-dom';
 export const Link = styled(NavLink)`
   padding: 10px;
   border-radius: 10px;
-  text-decoration: none;
-  color: white;
-  font-weight: 500;
-
   &.active {
     background-color: orange;
   }

@@ -2,7 +2,9 @@ import { nanoid } from 'nanoid';
 import { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 
-import { getMovieCredits, getFullPosterURL } from '../services/ApiRequests';
+import { getMovieCredits, getFullPosterURL } from '../../services/ApiRequests';
+
+import { CastList, CastItem } from './Cast.styled';
 
 export const Cast = () => {
   const [allCast, setAllCast] = useState([]);
@@ -17,11 +19,11 @@ export const Cast = () => {
       });
   }, [id]);
   return (
-    <ul className="cast-list">
+    <CastList>
       {allCast.map(actor => {
         const id = nanoid();
         return (
-          <li className="cast-item" key={id}>
+          <CastItem key={id}>
             {actor.profile_path ? (
               <img
                 src={getFullPosterURL(actor.profile_path)}
@@ -35,9 +37,9 @@ export const Cast = () => {
             )}
             <h3>Author: {actor.name}</h3>
             <p>Character: {actor.character}</p>
-          </li>
+          </CastItem>
         );
       })}
-    </ul>
+    </CastList>
   );
 };

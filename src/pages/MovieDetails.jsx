@@ -1,7 +1,12 @@
 import { Link, useParams, Outlet, useLocation } from 'react-router-dom';
 import { useEffect, useState } from 'react';
 
-import { BackLink } from '../components/MovieDetails.styled.js';
+import {
+  BackLink,
+  MovieDetailsBox,
+  InfoLink,
+  AdditionalInformationBox,
+} from '../components/movie-details/MovieDetails.styled.js';
 import { getMovieDetails, getFullPosterURL } from '../services/ApiRequests';
 
 export const MovieDetails = () => {
@@ -26,9 +31,11 @@ export const MovieDetails = () => {
   const votePercentage = (movie.vote_average * 10).toFixed(0) + '%';
   return (
     <>
-      <div className="movie-details-box">
-        <BackLink to={backLinkHref}>Go back</BackLink>
-        <img src={getFullPosterURL(movie.poster_path)} alt={movie.title} />
+      <MovieDetailsBox>
+        <div>
+          <BackLink to={backLinkHref}>Go back</BackLink>
+          <img src={getFullPosterURL(movie.poster_path)} alt={movie.title} />
+        </div>
         <div>
           <h2>
             {movie.title} ({movie.release_date})
@@ -40,13 +47,13 @@ export const MovieDetails = () => {
           {genres.length === 1 ? <h3>Genre</h3> : <h3>Genres</h3>}
           <p>{genres.map(genre => genre.name).join(`, `)}</p>
         </div>
-      </div>
+      </MovieDetailsBox>
       <h3>Additional information</h3>
-      <div className="information-box">
-        <Link to="cast">Cast</Link>
+      <AdditionalInformationBox>
+        <InfoLink to="cast">Cast</InfoLink>
         <br />
-        <Link to="reviews">Reviews</Link>
-      </div>
+        <InfoLink to="reviews">Reviews</InfoLink>
+      </AdditionalInformationBox>
       <Outlet />
     </>
   );

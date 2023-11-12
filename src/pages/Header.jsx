@@ -1,11 +1,11 @@
 import { Outlet } from 'react-router-dom';
 //import { Route, Routes } from 'react-router-dom';
 //import { NavLink } from 'react-router-dom';
-import { Link, HeaderStyled } from '../components/Header.styled';
+import { Link, HeaderStyled } from '../components/header/Header.styled';
 
 export const Header = () => {
   return (
-    <div>
+    <>
       <HeaderStyled>
         <nav>
           <Link to="/">Home</Link>
@@ -13,6 +13,6 @@ export const Header = () => {
         </nav>
       </HeaderStyled>
       <Outlet />
-    </div>
+    </>
   );
 };
