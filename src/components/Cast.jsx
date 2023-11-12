@@ -22,7 +22,12 @@ export const Cast = () => {
         const id = nanoid();
         return (
           <li className="cast-item" key={id}>
-            <img src={getFullPosterURL(actor.profile_path)} alt={actor.name} />
+            {actor.profile_path && (
+              <img
+                src={getFullPosterURL(actor.profile_path)}
+                alt={actor.name}
+              />
+            )}
             <h3>Author: {actor.name}</h3>
             <p>Character: {actor.character}</p>
           </li>

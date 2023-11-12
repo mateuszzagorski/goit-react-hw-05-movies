@@ -34,8 +34,8 @@ export const MovieDetails = () => {
           <p>{genres.map(genre => genre.name).join(`, `)}</p>
         </div>
       </div>
+      <h3>Additional information</h3>
       <div className="information-box">
-        <h3>Additional information</h3>
         <Link to="cast">Cast</Link>
         <br />
         <Link to="reviews">Reviews</Link>
