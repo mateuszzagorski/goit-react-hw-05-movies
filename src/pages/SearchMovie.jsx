@@ -41,7 +41,7 @@ export const SearchMovieByWord = () => {
           console.error(error);
         });
     }
-  }, [requestedWord]);
+  }, [requestedWord, showMovies, movieName]);
 
   return (
     <>
