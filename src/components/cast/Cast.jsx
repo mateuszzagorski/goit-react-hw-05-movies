@@ -1,4 +1,5 @@
 import { nanoid } from 'nanoid';
+import PropTypes from 'prop-types';
 import { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 
@@ -43,3 +44,9 @@ export const Cast = () => {
     </CastList>
   );
 };
+
+// Cast.propTypes = {
+//   allCast: PropTypes.array,
+//   getMovieCredits: PropTypes.func,
+//   id: PropTypes.number,
+// };

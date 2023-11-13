@@ -1,4 +1,5 @@
 import { nanoid } from 'nanoid';
+import PropTypes from 'prop-types';
 import { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 
@@ -31,4 +32,10 @@ export const Reviews = () => {
       })}
     </ul>
   );
+};
+
+Reviews.propTypes = {
+  reviews: PropTypes.array,
+  id: PropTypes.number,
+  getMovieReviews: PropTypes.func,
 };

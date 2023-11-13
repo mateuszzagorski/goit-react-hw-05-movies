@@ -1,5 +1,8 @@
-import { useParams, Outlet, useLocation } from 'react-router-dom';
+import PropTypes from 'prop-types';
 import { useEffect, useState } from 'react';
+import { useParams, Outlet, useLocation } from 'react-router-dom';
+
+import { getMovieDetails, getFullPosterURL } from '../services/ApiRequests';
 
 import {
   BackLink,
@@ -7,7 +10,6 @@ import {
   InfoLink,
   AdditionalInformationBox,
 } from '../components/movie-details/MovieDetails.styled.js';
-import { getMovieDetails, getFullPosterURL } from '../services/ApiRequests';
 
 export const MovieDetails = () => {
   const [movie, setMovie] = useState([]);
@@ -48,7 +50,7 @@ export const MovieDetails = () => {
         </div>
         <div>
           <h2>
-            {movie.title} ({movie.release_date})
+            {movie.title} ({movie.release_date?.slice(0, 4)})
           </h2>
           {movie.overview}
           {movie.vote_average > 0 ? <p>User Score: {votePercentage}</p> : null}
@@ -67,4 +69,14 @@ export const MovieDetails = () => {
       <Outlet />
     </>
   );
+};
+
+MovieDetails.propTypes = {
+  movie: PropTypes.array,
+  genres: PropTypes.array,
+  id: PropTypes.number,
+  locationURL: PropTypes.object,
+  votePercentage: PropTypes.number,
+  backLinkHref: PropTypes.func,
+  getMovieDetails: PropTypes.func,
 };

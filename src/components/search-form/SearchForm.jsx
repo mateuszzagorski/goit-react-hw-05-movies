@@ -1,3 +1,5 @@
+import PropTypes from 'prop-types';
+
 export const SearchForm = ({ fnOnFormSubmit, fnOnChange, value }) => {
   const handleSubmit = event => {
     fnOnFormSubmit(event);
@@ -27,3 +29,9 @@ export const SubmitBtn = () => (
     Search
   </button>
 );
+
+SearchForm.propTypes = {
+  handleSubmit: PropTypes.func,
+  fnOnFormSubmit: PropTypes.func,
+  fnOnChange: PropTypes.func,
+};
