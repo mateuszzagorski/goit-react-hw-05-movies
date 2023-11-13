@@ -15,21 +15,24 @@ import {
 export default function MovieDetails() {
   const [movie, setMovie] = useState([]);
   const [genres, setGenres] = useState([]);
+  const [location, setLocation] = useState({});
   const { id } = useParams();
-  const locationURL = useLocation();
+  const locationObj = useLocation();
   const votePercentage = (movie.vote_average * 10).toFixed(0) + '%';
 
   const backLinkHref = () => {
-    console.log(id);
-    console.log(locationURL.state);
-    if (locationURL.state?.from) {
-      return locationURL.state.from;
-    } else if (locationURL.state === null) {
+    if (location.state?.from) {
+      return location.state.from;
+    } else if (location.state === null) {
       return '/';
     } else {
       return `/movies/`;
     }
   };
+
+  useEffect(() => {
+    setLocation(locationObj);
+  }, []);
 
   useEffect(() => {
     getMovieDetails(id)

@@ -10,7 +10,6 @@ export default function Home() {
   useEffect(() => {
     getTrending()
       .then(data => {
-        console.log(data);
         setTrendingMovies(data.results);
       })
       .catch(error => {
