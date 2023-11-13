@@ -1,7 +1,7 @@
 import PropTypes from 'prop-types';
 import { Link, useLocation } from 'react-router-dom';
 
-export const MoviesList = ({ data }) => {
+export default function MoviesList({ data }) {
   const location = useLocation();
   return (
     <>
@@ -18,7 +18,7 @@ export const MoviesList = ({ data }) => {
       </ul>
     </>
   );
-};
+}
 
 MoviesList.propTypes = {
   location: PropTypes.object,

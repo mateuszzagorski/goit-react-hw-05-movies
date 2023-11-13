@@ -1,5 +1,5 @@
 import PropTypes from 'prop-types';
-import { useEffect, useState } from 'react';
+import { Suspense, useEffect, useState } from 'react';
 import { useParams, Outlet, useLocation } from 'react-router-dom';
 
 import { getMovieDetails, getFullPosterURL } from '../services/ApiRequests';
@@ -11,7 +11,7 @@ import {
   AdditionalInformationBox,
 } from '../components/movie-details/MovieDetails.styled.js';
 
-export const MovieDetails = () => {
+export default function MovieDetails() {
   const [movie, setMovie] = useState([]);
   const [genres, setGenres] = useState([]);
   const { id } = useParams();
@@ -66,10 +66,13 @@ export const MovieDetails = () => {
         <br />
         <InfoLink to="reviews">Reviews</InfoLink>
       </AdditionalInformationBox>
-      <Outlet />
+      <Suspense fallback={<div>Loading...</div>}>
+        {' '}
+        <Outlet />
+      </Suspense>
     </>
   );
-};
+}
 
 MovieDetails.propTypes = {
   movie: PropTypes.array,

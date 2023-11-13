@@ -7,7 +7,7 @@ import { getMovieReviews } from '../../services/ApiRequests';
 
 import { ReviewItem } from './Reviews.styled';
 
-export const Reviews = () => {
+export default function Reviews() {
   const [reviews, setReviews] = useState([]);
   const { id } = useParams();
   useEffect(() => {
@@ -32,7 +32,7 @@ export const Reviews = () => {
       })}
     </ul>
   );
-};
+}
 
 Reviews.propTypes = {
   reviews: PropTypes.array,

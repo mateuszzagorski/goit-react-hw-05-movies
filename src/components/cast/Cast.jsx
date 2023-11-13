@@ -7,7 +7,7 @@ import { getMovieCredits, getFullPosterURL } from '../../services/ApiRequests';
 
 import { CastList, CastItem } from './Cast.styled';
 
-export const Cast = () => {
+export default function Cast() {
   const [allCast, setAllCast] = useState([]);
   const { id } = useParams();
   useEffect(() => {
@@ -43,10 +43,10 @@ export const Cast = () => {
       })}
     </CastList>
   );
-};
+}
 
-// Cast.propTypes = {
-//   allCast: PropTypes.array,
-//   getMovieCredits: PropTypes.func,
-//   id: PropTypes.number,
-// };
+Cast.propTypes = {
+  allCast: PropTypes.array,
+  getMovieCredits: PropTypes.func,
+  id: PropTypes.number,
+};

@@ -2,9 +2,9 @@ import PropTypes from 'prop-types';
 import { useEffect, useState } from 'react';
 
 import { getTrending } from '../services/ApiRequests';
-import { MoviesList } from 'components/movie-list/MovieList';
+import MoviesList from 'components/movie-list/MovieList';
 
-export const Home = () => {
+export default function Home() {
   const [trendingMovies, setTrendingMovies] = useState([]);
 
   useEffect(() => {
@@ -24,7 +24,7 @@ export const Home = () => {
       <MoviesList data={trendingMovies} />
     </>
   );
-};
+}
 
 Home.propTypes = {
   trendingMovies: PropTypes.array,

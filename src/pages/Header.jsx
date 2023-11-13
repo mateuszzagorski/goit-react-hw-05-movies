@@ -1,9 +1,9 @@
+import { Suspense } from 'react';
 import { Outlet } from 'react-router-dom';
-//import { Route, Routes } from 'react-router-dom';
-//import { NavLink } from 'react-router-dom';
+
 import { Link, HeaderStyled } from '../components/header/Header.styled';
 
-export const Header = () => {
+export default function Header() {
   return (
     <>
       <HeaderStyled>
@@ -12,7 +12,9 @@ export const Header = () => {
           <Link to="/movies">Movies</Link>
         </nav>
       </HeaderStyled>
-      <Outlet />
+      <Suspense fallback={<div>Loading...</div>}>
+        <Outlet />
+      </Suspense>
     </>
   );
-};
+}

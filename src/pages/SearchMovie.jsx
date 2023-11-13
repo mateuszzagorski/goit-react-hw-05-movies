@@ -2,11 +2,11 @@ import { useState, useEffect } from 'react';
 
 import { searchMovie } from '../services/ApiRequests';
 import { SearchForm } from 'components/search-form/SearchForm';
-import { MoviesList } from '../components/movie-list/MovieList';
+import MoviesList from '../components/movie-list/MovieList';
 
 import { useSearchParams } from 'react-router-dom';
 
-export const SearchMovieByWord = () => {
+export default function SearchMovieByWord() {
   const [data, setData] = useState([]);
   const [requestedWord, setRequestedWord] = useState('');
   const [searchParams, setSearchParams] = useSearchParams();
@@ -49,4 +49,4 @@ export const SearchMovieByWord = () => {
       {data.length > 0 && <MoviesList data={data} />}
     </>
   );
-};
+}
