@@ -13,10 +13,20 @@ export const MovieDetails = () => {
   const [movie, setMovie] = useState([]);
   const [genres, setGenres] = useState([]);
   const { id } = useParams();
-  const location = useLocation();
-  const backLinkHref = location.state?.from ?? '/movies';
-  console.log(location.state);
-  // console.log(location.state.from);
+  const locationURL = useLocation();
+  const votePercentage = (movie.vote_average * 10).toFixed(0) + '%';
+
+  const backLinkHref = () => {
+    console.log(id);
+    console.log(locationURL.state);
+    if (locationURL.state?.from) {
+      return locationURL.state.from;
+    } else if (locationURL.state === null) {
+      return '/';
+    } else {
+      return `/movies/`;
+    }
+  };
 
   useEffect(() => {
     getMovieDetails(id)
@@ -28,12 +38,12 @@ export const MovieDetails = () => {
         console.error(error);
       });
   }, [id]);
-  const votePercentage = (movie.vote_average * 10).toFixed(0) + '%';
+
   return (
     <>
       <MovieDetailsBox>
         <div>
-          <BackLink to={backLinkHref}>Go back</BackLink>
+          <BackLink to={backLinkHref()}>Go back</BackLink>
           <img src={getFullPosterURL(movie.poster_path)} alt={movie.title} />
         </div>
         <div>

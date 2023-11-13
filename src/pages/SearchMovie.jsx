@@ -8,7 +8,6 @@ import { useSearchParams } from 'react-router-dom';
 
 export const SearchMovieByWord = () => {
   const [data, setData] = useState([]);
-  const [showMovies, setShowMovies] = useState(false);
   const [requestedWord, setRequestedWord] = useState('');
   const [searchParams, setSearchParams] = useSearchParams();
   const movieName = searchParams.get('name') ?? '';
@@ -17,7 +16,6 @@ export const SearchMovieByWord = () => {
     const newParams = name !== '' ? { name } : {};
     setSearchParams(newParams);
     setRequestedWord(newParams);
-    setShowMovies(true);
   };
 
   const getWordFromInput = event => {
@@ -30,18 +28,16 @@ export const SearchMovieByWord = () => {
   };
 
   useEffect(() => {
-    if (requestedWord !== '') {
-      console.log(movieName);
+    if (requestedWord || movieName !== '') {
       searchMovie(movieName || requestedWord)
         .then(data => {
-          setShowMovies(true);
           setData(data.results);
         })
         .catch(error => {
           console.error(error);
         });
     }
-  }, [requestedWord, showMovies, movieName]);
+  }, [requestedWord, movieName]);
 
   return (
     <>
@@ -50,7 +46,7 @@ export const SearchMovieByWord = () => {
         fnOnFormSubmit={getWordFromInput}
         fnOnChange={updateQueryString}
       />
-      {setShowMovies && <MoviesList data={data} />}
+      {data.length > 0 && <MoviesList data={data} />}
     </>
   );
 };
