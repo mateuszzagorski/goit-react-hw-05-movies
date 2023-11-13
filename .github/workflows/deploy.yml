@@ -17,11 +17,13 @@ jobs:
           echo ${{ secrets.REACT_APP_API_KEY }}
           echo "REACT_APP_API_KEY=${{ secrets.REACT_APP_API_KEY }}"
       - name: Install, lint, build 🔧
+        env:
+          REACT_APP_API_KEY: ${{ secrets.REACT_APP_API_KEY }}
         run: |
           echo "REACT_APP_API_KEY=${{ secrets.REACT_APP_API_KEY }}" >> .env
           ls -la
           echo "TESTING"
-          echo .env
+          cat .env
           echo "FINISHED TESTING"
           npm install
           npm run lint:js
