@@ -1,11 +1,11 @@
 import axios from 'axios';
 
-const API_KEY = '7968ad8b74212fdec970c8532d70f000';
+const apiKey = process.env.REACT_APP_API_KEY;
 const API_URL = 'https://api.themoviedb.org/3';
 
 const fetchData = async option => {
   try {
-    const response = await axios.get(`${API_URL}${option}api_key=${API_KEY}`);
+    const response = await axios.get(`${API_URL}${option}api_key=${apiKey}`);
     const data = response.data;
     return data;
   } catch (error) {
