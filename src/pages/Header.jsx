@@ -1,6 +1,7 @@
 import { Suspense } from 'react';
 import { Outlet } from 'react-router-dom';
 
+import Loader from '../components/loader/Loader';
 import { Link, HeaderStyled } from '../components/header/Header.styled';
 
 export default function Header() {
@@ -12,7 +13,7 @@ export default function Header() {
           <Link to="/movies">Movies</Link>
         </nav>
       </HeaderStyled>
-      <Suspense fallback={<div>Loading...</div>}>
+      <Suspense fallback={<Loader />}>
         <Outlet />
       </Suspense>
     </>

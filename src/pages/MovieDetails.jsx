@@ -2,6 +2,7 @@ import PropTypes from 'prop-types';
 import { Suspense, useEffect, useState } from 'react';
 import { useParams, Outlet, useLocation } from 'react-router-dom';
 
+import Loader from '../components/loader/Loader';
 import { getMovieDetails, getFullPosterURL } from '../services/ApiRequests';
 
 import {
@@ -66,7 +67,7 @@ export default function MovieDetails() {
         <br />
         <InfoLink to="reviews">Reviews</InfoLink>
       </AdditionalInformationBox>
-      <Suspense fallback={<div>Loading...</div>}>
+      <Suspense fallback={<Loader />}>
         {' '}
         <Outlet />
       </Suspense>
