@@ -5,7 +5,7 @@
 This is a movie search app built with React, using the themoviedb.org API. It enables tasks like fetching trending movies and searching by keywords. The application provides detailed movie information, including cast details and reviews. The code is optimized for efficient loading. Recently, routing functionality has been added to enhance navigation, making it easier to explore different sections of the app seamlessly.
 
 ## Screenshot
-Here is a screenshot of the phonebook application:
+Here is a screenshot of the movie application:
 
 ![image](https://github.com/AnnaIstochnikova/goit-react-hw-05-movies/assets/122437399/5ca4e0bb-1a84-4a95-92ee-fbd879e3a4a8)
 
