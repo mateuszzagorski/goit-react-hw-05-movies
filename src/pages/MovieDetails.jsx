@@ -32,6 +32,7 @@ export default function MovieDetails() {
 
   useEffect(() => {
     setLocation(locationObj);
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   useEffect(() => {
